@@ -2,7 +2,7 @@ PROJECT=freeswitch_channel_id_parser
 
 GENERATED_EXECUTABLES=
 
-GENERATED_SOURCES=
+GENERATED_SOURCES=ahven
 
 SCRIPTS=
 

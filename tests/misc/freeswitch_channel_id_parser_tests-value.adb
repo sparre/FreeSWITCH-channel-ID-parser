@@ -17,7 +17,7 @@ package body FreeSWITCH_Channel_ID_Parser_Tests.Value is
       Mode      : Modes := Internal;
       Extension : String := "";
       Host      : String := "";
-      Port      : GNAT.Sockets.Port_Type := 0;
+      Port      : GNAT.Sockets.Port_Type := 5060;
       Address   : String := "";
    procedure Parse_And_Check;
 
@@ -97,8 +97,13 @@ package body FreeSWITCH_Channel_ID_Parser_Tests.Value is
      (Source    => "sofia/internal/xD-Ij5zcKRtq5NbCDHd9tCA==@192.168.1.2",
       Mode      => Internal,
       Extension => "xD-Ij5zcKRtq5NbCDHd9tCA==",
-      Host      => "192.168.1.2",
-      Port      => 5060);
+      Host      => "192.168.1.2");
+
+   procedure Example_6 is new Parse_And_Check
+     (Source    => "sofia/internal/1016@gpon.co.kr",
+      Mode      => Internal,
+      Extension => "1016",
+      Host      => "gpon.co.kr");
 
    pragma Style_Checks (Off);
    overriding
@@ -112,5 +117,6 @@ package body FreeSWITCH_Channel_ID_Parser_Tests.Value is
       Add_Test_Routine (T, Example_3'Access, "3: Internal");
       Add_Test_Routine (T, Example_4'Access, "4: External");
       Add_Test_Routine (T, Example_5'Access, "5: Internal - implicit port");
+      Add_Test_Routine (T, Example_6'Access, "6: Internal - implicit port");
    end Initialize;
 end FreeSWITCH_Channel_ID_Parser_Tests.Value;

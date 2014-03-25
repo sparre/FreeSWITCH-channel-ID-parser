@@ -1,11 +1,11 @@
 --  O mighty Emacs, please use -*- Ada -*- mode in this lowly file.
 
 with "../../ada_2005";
+with "../../freeswitch_channel_id_parser";
 with "../../ahven/gnat/ahven_lib";
 
 project Test is
-   for Source_Dirs use (".",
-                        "../../src/");
+   for Source_Dirs use (".");
 
    for Main use ("freeswitch_channel_id_parser-tests-run");
 

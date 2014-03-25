@@ -93,6 +93,13 @@ package body FreeSWITCH_Channel_ID_Parser_Tests.Value is
       Mode      => External,
       Address   => "7000@192.168.1.178:7000");
 
+   procedure Example_5 is new Parse_And_Check
+     (Source    => "sofia/internal/xD-Ij5zcKRtq5NbCDHd9tCA==@192.168.1.2",
+      Mode      => Internal,
+      Extension => "xD-Ij5zcKRtq5NbCDHd9tCA==",
+      Host      => "192.168.1.2",
+      Port      => 5060);
+
    pragma Style_Checks (Off);
    overriding
    procedure Initialize (T : in out Test) is
@@ -104,5 +111,6 @@ package body FreeSWITCH_Channel_ID_Parser_Tests.Value is
       Add_Test_Routine (T, Example_2'Access, "2: Parse failure");
       Add_Test_Routine (T, Example_3'Access, "3: Internal");
       Add_Test_Routine (T, Example_4'Access, "4: External");
+      Add_Test_Routine (T, Example_5'Access, "5: Internal - implicit port");
    end Initialize;
 end FreeSWITCH_Channel_ID_Parser_Tests.Value;

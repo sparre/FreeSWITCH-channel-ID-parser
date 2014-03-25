@@ -60,7 +60,11 @@ package body FreeSWITCH_Channel_ID_Parser is
       use Ada.Strings.Fixed;
       Starting_At : Positive := From'First;
       Ending_At   : Positive := From'Last;
-      Current     : String renames From (Starting_At .. Ending_At);
+      function Current return String;
+      function Current return String is
+      begin
+         return From (Starting_At .. Ending_At);
+      end Current;
    begin
       if Index (Source => Current, Pattern => After) > 0 then
          Starting_At :=

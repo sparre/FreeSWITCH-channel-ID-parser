@@ -14,6 +14,8 @@ The repository comes with two ready-to-use test cases:
 
 2) 'unused_units' - warns about units which aren't compiled.
 
+3) 'misc' - testing the actual functionality of the package.
+
 
 Links
 -----
